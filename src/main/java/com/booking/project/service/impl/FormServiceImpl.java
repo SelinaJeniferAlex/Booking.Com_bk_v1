@@ -14,10 +14,16 @@ public class FormServiceImpl implements FormService{
 	private FormRepo formRepo;
 	
 	@Override
-	public Form addFormData(Form form){
+	public boolean addFormData(Form form){
+		if(formRepo.existsByEmailAddress(form.getemailAddress())){
+			return false;
+		}
+		else if(formRepo.existsByUserName(form.getuserName())){
+			return false;
+		}
 		
 		formRepo.saveAndFlush(form);
-		return form;
+		return true;
 	}
 
 	@Override

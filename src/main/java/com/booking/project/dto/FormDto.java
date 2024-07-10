@@ -1,4 +1,4 @@
-package com.booking.project.model;
+package com.booking.project.dto;
 
 public class FormDto {
 	

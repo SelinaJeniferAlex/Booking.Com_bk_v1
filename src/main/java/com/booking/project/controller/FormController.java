@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.booking.project.dto.FormDto;
 import com.booking.project.model.Form;
-import com.booking.project.model.FormDto;
 import com.booking.project.service.FormService;
 
 @RestController
@@ -20,10 +20,10 @@ public class FormController {
 	private FormService formService;
 	
 	@PostMapping("/register")
-	public ResponseEntity<?> addFormData(@RequestBody Form form){
+	public ResponseEntity<Boolean> addFormData(@RequestBody Form form){
 	
-		formService.addFormData(form);		
-		return ResponseEntity.status(HttpStatus.OK).body(form);
+		boolean success = formService.addFormData(form);		
+		return ResponseEntity.status(HttpStatus.OK).body(success);
 
 	}
 	

@@ -1,19 +1,13 @@
-package com.booking.project.model;
+package com.booking.project.dto;
 
 import java.util.List;
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
-@Entity
-@Table(name="admin")
-public class Admin {
+import org.springframework.web.multipart.MultipartFile;
+
+import jakarta.persistence.ElementCollection;
+
+public class AdminDto {
 	
-	@Id
-	@GeneratedValue
-	private int adminId;
     private String hotelName;
     private String grade;
     private String distance;
@@ -21,29 +15,20 @@ public class Admin {
     private String propertyType;
     @ElementCollection
     private List<String> facilities;
-    private String image;
+    private MultipartFile image;
     private String place;
     private String placeType;
-    public Admin() {
-    	
-    }
-	public Admin(int adminId, String hotelName, String grade, String distance, String meals, String propertyType,
-			List<String> facilities, String image) {
-		super();
-		this.adminId = adminId;
-		this.hotelName = hotelName;
-		this.grade = grade;
-		this.distance = distance;
-		this.meals = meals;
-		this.propertyType = propertyType;
-		this.facilities = facilities;
-		this.image = image;
+	public String getPlace() {
+		return place;
 	}
-	public int getAdminId() {
-		return adminId;
+	public void setPlace(String place) {
+		this.place = place;
 	}
-	public void setAdminId(int adminId) {
-		this.adminId = adminId;
+	public String getPlaceType() {
+		return placeType;
+	}
+	public void setPlaceType(String placeType) {
+		this.placeType = placeType;
 	}
 	public String getHotelName() {
 		return hotelName;
@@ -81,24 +66,11 @@ public class Admin {
 	public void setFacilities(List<String> facilities) {
 		this.facilities = facilities;
 	}
-	public String getImage() {
+	public MultipartFile getImage() {
 		return image;
 	}
-	public void setImage(String image) {
+	public void setImage(MultipartFile image) {
 		this.image = image;
 	}
-	public String getPlace() {
-		return place;
-	}
-	public void setPlace(String place) {
-		this.place = place;
-	}
-	public String getPlaceType() {
-		return placeType;
-	}
-	public void setPlaceType(String placeType) {
-		this.placeType = placeType;
-	}
-
     
 }

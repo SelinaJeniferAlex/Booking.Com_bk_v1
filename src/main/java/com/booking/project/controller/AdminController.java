@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.booking.project.model.Admin;
 import com.booking.project.service.AdminService;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 
 @RestController
@@ -32,6 +35,14 @@ public class AdminController {
     public ResponseEntity<List<Admin>> getAllHotels() {
         List<Admin> data = adminService.getAllHotels();
         return new ResponseEntity<>(data, HttpStatus.OK);
+    }
+	@DeleteMapping("/delete/{adminId}")
+    public ResponseEntity<String> deleteStay(@PathVariable int adminId){
+        
+        Admin admin = adminService.deleteStay(adminId);
+        
+        return ResponseEntity.status(HttpStatus.OK).body("Data Deleted" + admin);
+        
     }
 }
  

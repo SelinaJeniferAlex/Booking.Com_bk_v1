@@ -10,5 +10,9 @@ public interface AdminService {
     
     List<Admin> getAllHotels();
 
+	Admin deleteStay(int adminId);
+
+	List<Admin> getAllStays();
+
 
 }

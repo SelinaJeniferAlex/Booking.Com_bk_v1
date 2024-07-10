@@ -25,5 +25,18 @@ public class AdminServiceImpl implements AdminService{
     public List<Admin> getAllHotels() {
         return adminRepo.findAll();
     }
+	@Override
+	public Admin deleteStay(int adminId) {
+		  Admin admin = adminRepo.findById(adminId).get();
+	        if(admin!=null)
+	        adminRepo.delete(admin);
+	        
+	        return admin;
+	}
+	@Override
+	public List<Admin> getAllStays() {
+        return adminRepo.findAll();
+
+	}
 
 }
